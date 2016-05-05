@@ -1,3 +1,4 @@
+// Provides a custom http client or oauth context with bundled SSL certificates.
 package bundledhttp
 
 import (
