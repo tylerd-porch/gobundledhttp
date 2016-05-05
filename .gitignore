@@ -22,3 +22,8 @@ _testmain.go
 *.exe
 *.test
 *.prof
+
+# Ignore tags
+tags
+# Ignore possible cacert.pem file
+cacert.pem
