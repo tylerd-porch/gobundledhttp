@@ -1,10 +1,12 @@
 // Provides a custom http client or oauth context with bundled SSL certificates.
-package bundledhttp
+package gobundledhttp
 
 import (
 	"crypto/tls"
 	"crypto/x509"
 	"net/http"
+
+	"github.com/tydavis/gobundledhttp/certificates"
 
 	"golang.org/x/net/context"
 	"golang.org/x/oauth2"
@@ -15,7 +17,7 @@ var pool *x509.CertPool
 func init() {
 	// Always build the pool
 	pool = x509.NewCertPool()
-	pool.AppendCertsFromPEM(pemCerts) // from certificates.go file
+	pool.AppendCertsFromPEM(certificates.PemCerts) // from certificates.go file
 }
 
 func NewClient() *http.Client {
@@ -34,7 +36,7 @@ func CtxBundled() context.Context {
 	return context.WithValue(
 		context.Background(),
 		oauth2.HTTPClient,
-		bundledhttp.NewClient(),
+		NewClient(),
 	)
 }
 

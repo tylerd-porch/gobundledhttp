@@ -12,7 +12,7 @@ import (
 	"regexp"
 )
 
-var header []byte = []byte(fmt.Sprintf("package main\n\nvar pemCerts = []byte(`"))
+var header []byte = []byte(fmt.Sprintf("package updatecerts\n\nvar pemCerts = []byte(`"))
 var footer []byte = []byte(fmt.Sprintf("`)\n"))
 
 func openCacerts() []byte {
@@ -76,4 +76,5 @@ func main() {
 		log.Fatalf("Error writing certificates.go: %v \n", err)
 	}
 	log.Println("Finished writing file.")
+	log.Println("MOVE certificates.go into the /certificates/ folder")
 }

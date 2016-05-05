@@ -3,6 +3,7 @@ Provides convenience functions to generate an *http.Client with bundled CA certi
 
 To update certificates (needed only if the cacerts source changes):
 ```
-go run updatecerts/update.go
+cd updatecerts
+go run update.go
 ```
 
